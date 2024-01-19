@@ -1,17 +1,17 @@
 {
   "basics": {
     "name": "Roxane Ruan",
-    "label": "Student",
+    "label": "Shidler Undergraduate Student",
     "picture": "https://github.com/roxaneruan.png",
     "email": "rruan8@hawaii.edu",
     "phone": "",
     "website": "https://roxaneruan.github.io",
-    "summary": "I am studying for a B.B.A. in Management Information Systems with a minor in Public Health in the Shidler College of Business at the University of Hawaii. I expect to graduate in Spring, 2024.",
+    "summary": "I am studying for a B.B.A. in Management Information Systems with a minor in Public Health in the Shidler College of Business at the University of Hawaii, Manoa. I expect to graduate in Spring 2026.",
     "location": { "address": "", "postalCode": "", "city": "Honolulu", "countryCode": "USA", "region": "Hawaii" },
     "profiles": [
       { "network": "github", "username": "roxaneruan", "url": "http://github.com/roxaneruan" },
       { "network": "linkedin", "username": "roxaneruan", "url": "http://linkedin.com/in/roxaneruan" },
-      { "network": "instagram", "username": "", "url": "http://instagram.com/rrvxane_" }
+      { "network": "instagram", "username": "", "url": "http://instagram.com/rvxane_" }
     ]
   },
   "interests": [
@@ -19,15 +19,15 @@
     { "name": "Project Management" },
     { "name": "Healthcare" },
     { "name": "Poke" },
-    { "name": "" }
+    { "name": "Pop Market" }
   ],
   "skills": [
     {
-      "name": "Languages and Frameworks",
+      "name": "",
       "keywords": [ "" ]
     },
     {
-      "name": "Toolsets/OS",
+      "name": "",
       "keywords": [ "MacOS", "Git/GitHub"]
     }
   ],
