@@ -23,11 +23,11 @@
   ],
   "skills": [
     {
-      "name": "",
-      "keywords": [ "" ]
+      "name": "Languages",
+      "keywords": [ "English", "Cantonese", "Mandarin" ]
     },
     {
-      "name": "",
+      "name": "Technical",
       "keywords": [ "MacOS", "Git/GitHub"]
     }
   ],
@@ -49,11 +49,12 @@
       "website": "",
       "startDate": "May 2023",
       "endDate": "",
-      "summary": "Under mentorship to learn troubleshooting and diagnosing of data network problems
-",
+      "summary": "",
       "highlights": [
-        "",
-        ", "
+        "Under mentorship to learn troubleshooting and diagnosing of data network problems",
+        "Install and maintain data network connectivity for Manoa departments"
+        "Communicate with network users to resolve problems using various network test equipment
+"
       ]
     },
     {
@@ -62,11 +63,11 @@
       "website": "",
       "startDate": "September 2022",
       "endDate": "",
-      "summary": "Provide assistance to instructors and students using the labs
-",
+      "summary": "",
       "highlights": [
-        "",
-        ""
+        "Provide assistance to instructors and students using the labs",
+        "Ensure computer equipment and other lab property are appropriately handled",
+        "Assist with administrative duties and projects"
       ]
     }
   ],
@@ -77,11 +78,12 @@
       "position": "College Student Volunteer",
       "startDate": "July 2023",
       "endDate": "August 2023",
-      "summary": "Assisted administration director in contacting local community organizations for event information
-","Reviewed portal templates and spreadsheets for accurate formatting and calculations"
+      "summary": "",""
       "highlights": [
-        "",
-        ""
+        "Assisted administration director in contacting local community organizations for event information",
+        "Reviewed portal templates and spreadsheets for accurate formatting and calculations",
+        "Created digital instructions to aid guests in navigating their way through the hospital",
+        "Coordinated with office staff to prepare paperwork for incoming patients"
       ]
     },
     {
