@@ -4,22 +4,22 @@
     "label": "Shidler Undergraduate Student",
     "picture": "https://github.com/roxaneruan.png",
     "email": "rruan8@hawaii.edu",
-    "phone": "",
+    "phone": "808-892-0616",
     "website": "https://roxaneruan.github.io",
-    "summary": "I am studying for a B.B.A. in Management Information Systems with a minor in Public Health in the Shidler College of Business at the University of Hawaii, Manoa. I expect to graduate in Spring 2026.",
-    "location": { "address": "", "postalCode": "", "city": "Honolulu", "countryCode": "USA", "region": "Hawaii" },
+    "summary": "I am studying for a B.B.A. in Management Information Systems with a minor in Public Health in the Shidler College of Business at the University of Hawaii at Manoa. I expect to graduate in Spring, 2026.",
+    "location": { "address": "", "postalCode": "96817", "city": "Honolulu", "countryCode": "USA", "region": "Hawaii" },
     "profiles": [
       { "network": "github", "username": "roxaneruan", "url": "http://github.com/roxaneruan" },
       { "network": "linkedin", "username": "roxaneruan", "url": "http://linkedin.com/in/roxaneruan" },
-      { "network": "instagram", "username": "", "url": "http://instagram.com/rvxane_" }
+      { "network": "instagram", "username": "rvxane_", "url": "http://instagram.com/rvxane_" }
     ]
   },
   "interests": [
-    { "name": "Data Analytics" },
-    { "name": "Project Management" },
     { "name": "Healthcare" },
+    { "name": "Data Analytics" },
+    { "name": "PopMart" },
     { "name": "Poke" },
-    { "name": "Dimoo" }
+    { "name": "Youtube" }
   ],
   "skills": [
     {
@@ -27,8 +27,8 @@
       "keywords": [ "English", "Cantonese", "Mandarin" ]
     },
     {
-      "name": "Technical",
-      "keywords": [ "MacOS", "Git/GitHub"]
+      "name": "Toolsets/OS",
+      "keywords": [ "MacOS", "Microsoft Office", "Git/GitHub" ]
     }
   ],
   "education": [
@@ -44,69 +44,55 @@
   ],
   "work": [
     {
-      "company": "University of Hawaii, Information Technology Center",
+      "company": "Information Technology Center, UH Manoa",
       "position": "Network Operations Technician Trainee",
       "website": "",
-      "startDate": "May 2023",
-      "endDate": "",
-      "summary": "",
+      "startDate": "2023-05",
+      "endDate": "Present",
+      "summary": "Provide assistance to instructors and students using the labs.",
       "highlights": [
         "Under mentorship to learn troubleshooting and diagnosing of data network problems",
         "Install and maintain data network connectivity for Manoa departments",
-        "Communicate with network users to resolve problems using various network test equipment",
+        "Communicate with network users to resolve problems using various network test equipment"
       ]
     },
     {
-      "company": "University of Hawaii, Center for Language and Technology",
-      "position": "Computer Lab Monitor",
-      "website": "",
-      "startDate": "September 2022",
-      "endDate": "",
+      "company": "Center for Language & Technology",
+      "position": "Computer Laboratory Monitor",
+      "website": "https://clt.manoa.hawaii.edu/",
+      "startDate": "2022-09",
+      "endDate": "Present",
       "summary": "",
       "highlights": [
-        "Provide assistance to instructors and students using the labs",
+        "Provide assistance to instructors and students using the labs", 
         "Ensure computer equipment and other lab property are appropriately handled",
-        "Assist with administrative duties and projects",
+        "Operated POS system",
+        "Assist with administrative duties and projects"
       ]
     }
   ],
   "volunteer": [
     {
-      "organization": "The Queen's Medical Center, Honolulu",
-      "website": "",
-      "position": "College Student Volunteer",
-      "startDate": "July 2023",
-      "endDate": "August 2023",
-      "summary": "",
-      "highlights": [
-        "Assisted administration director in contacting local community organizations for event information",
-        "Reviewed portal templates and spreadsheets for accurate formatting and calculations",
-        "Created digital instructions to aid guests in navigating their way through the hospital",
-        "Coordinated with office staff to prepare paperwork for incoming patients",
-      ]
-    },
-    {
-      "organization": "",
-      "website": "",
-      "position": "",
-      "startDate": "",
-      "endDate": "",
-      "summary": "",
-      "Highlights": ""
+      "organization": "Queen's Medical Center, Honolulu",
+      "website": "https://www.queens.org/",
+      "position": "Volunteer",
+      "startDate": "2023-07",
+      "endDate": "2023-08",
+      "summary": "Assisted administration director in contacting local community organizations for event information. Created digital instructions to aid guests in navigating their way through the hospital. Reviewed portal templates and spreadsheets for accurate formatting and calculations."
     }
   ],
   "awards": [
     {
       "title": "B+ Scholarship",
-      "date": "2022",
+      "date": "2022-Present",
       "awarder": "State of Hawaii",
-      "summary": "Scholarship awarded to incoming freshmen and continuing students who completed rigourous coursework with a GPA of 3.0 or above at a Hawaii state public school",
+      "summary": "Scholarships awarded to incoming freshmen and continuing students who complete a rigorous high school curriculum with a minimum overall GPA of 3.0 at a Hawai'i public school."
     },
     {
       "title": "",
       "date": "",
       "awarder": "",
-      "summary": "."
+      "summary": ""
     }
   ],
   "references": [
