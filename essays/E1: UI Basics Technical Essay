@@ -1,0 +1,33 @@
+---
+layout: essay
+type: essay
+title: "Why MIS?"
+# All dates must be YYYY-MM-DD format!
+date: 2024-01-18
+published: true
+labels:
+  - MIS
+  - E1
+  - BrowserHistory
+---
+
+## WOD 1: BrowserHistory1
+
+BrowserHistory 1 was quite straightforward, yet it had many steps in comparison to WODs 2 and 3. I knew I wouldn't be able to get Rx my first time. My first try took about 30 minutes since I still needed to familarize myself with HTML. I would say the most "difficult" thing was linking the images. It's not SUPER difficult, but just the line of code that was the longest for this WOD. Overall, it took me 75 minutes to finish filming since I made multiple videos. From this WOD, I learned to always check for little mistakes or mispelling because they always threw me off when what I inputted didn't work. Although it took a while, the WOD I submitted was within the Average range!
+
+Advice: Read the provided notes and watch out for careless mistakes (misspelling especially)!
+
+## WOD 2: BrowserHistory2
+
+This WOD was quite simple and I had lots of fun with it. In this WOD, we learned how to apply Google fonts in order to design and implement our changes for our webpage. This WOD allowed me to learn how to link CSS and HTML together since we needed to reference one with the other. I can still remember the amount of times I had to put "link rel = "style-sheet" hrem=". It's stuck in my head! I say this in a positive note. Since this WOD was much easier, I was able to submit my final recording of 10 minutes. I spent less time recording and redoing this lab.
+
+Advice: More careless mistakes! Make sure you don't forget the semicolon for style-sheet!!
+
+## WOD 3: BrowserHistory3
+
+Prior to doing this WOD, I reviewed the instructions and thought, "Hmm.. this won't take long. I only need to do two tasks and I will be done." Well, I was wrong. It took me a lot longer than I expected because I was still trying to catch up on notes. I was reading and listening to the resources provided while trying to work through the WOD before attempting to record. I learned that whenever we have a class (ex: div class= left), we need to put a dot/period. Only for html elements there will be no dot for the css selector. I also had difficulty with aligning the "A brief history" sections, since inline would not work. I watched the screencast then, and Professor Johnson was able to demonstrate how we could use padding to solve the issue! Once I finished practicing and going through recordings, I was able to make Rx with a time of 8-9 minutes. Surprisingly, this was a better time than my WOD 2. 
+
+Advice: Watch the screencasts if you are taking longer than usual.
+
+## Final Advice
+My one take-away from doing my first three WODs is to ALWAYS CHECK FOR CARELESS MISTAKES whether it be the incorrect spelling or wrong term. For example, I was stuck 5-10 min on a WOD before realizing I put "ln" instead of "li" on my stylesheet.
