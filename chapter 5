@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Security+ PBQ — Chapter 5: PKI & Cryptography</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#111922; --muted:#94a3b8; --text:#e2e8f0; --accent:#22d3ee;
+    --ok:#10b981; --bad:#ef4444; --border:#1f2a37;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 700px at 30% -10%, #0f172a 0%, var(--bg) 60%);color:var(--text);
+       font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans";}
+  header{position:sticky;top:0;z-index:3;padding:14px 18px;border-bottom:1px solid var(--border);
+         background:linear-gradient(180deg,rgba(17,25,34,.9),rgba(17,25,34,.6));backdrop-filter:blur(10px)}
+  header h1{margin:0;font-size:20px}
+  header p{margin:4px 0 0;color:var(--muted);font-size:13px}
+  .wrap{max-width:980px;margin:18px auto;padding:0 16px 80px}
+  .card{background:linear-gradient(185deg,rgba(34,211,238,.06),transparent 35%),linear-gradient(0deg,var(--panel),var(--panel));
+        border:1px solid var(--border);border-radius:18px;padding:18px 18px;margin-bottom:14px;
+        box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 12px 24px rgba(0,0,0,.35)}
+  .q{display:grid;gap:10px}
+  .q h3{margin:0 0 4px;font-size:16px;line-height:1.35}
+  .meta{color:var(--muted);font-size:12px;margin-bottom:6px}
+  select{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#0c131b;color:var(--text);font-size:15px;outline:none}
+  select:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(34,211,238,.15)}
+  .feedback{font-size:13px;margin-top:6px;display:none}
+  .feedback.ok{color:var(--ok)} .feedback.bad{color:var(--bad)}
+  .explain{margin-top:4px;color:var(--muted);font-size:12px;display:none}
+  .svgbox{background:#0a121a;border:1px solid var(--border);border-radius:12px;padding:8px}
+  .legend{font-size:12px;color:var(--muted);margin-top:6px}
+  .controls{position:sticky;bottom:0;z-index:3;padding:12px 16px;border-top:1px solid var(--border);
+            background:linear-gradient(0deg,rgba(17,25,34,.98),rgba(17,25,34,.8));display:flex;gap:10px;justify-content:space-between;align-items:center}
+  button{appearance:none;border:1px solid var(--border);background:#0c131b;color:var(--text);padding:10px 14px;border-radius:12px;font-size:14px;cursor:pointer}
+  button.primary{background:linear-gradient(180deg,#14b8a6,#0ea5e9);border:none;color:white;font-weight:600}
+  .score{font-weight:700;letter-spacing:.2px}
+  details.tip{margin-top:6px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Security+ PBQ — Chapter 5: PKI & Cryptography 15 Questions</h1>
+  <p>Medium difficulty · Dropdown answers · Includes diagram & instant feedback</p>
+</header>
+
+<div class="wrap">
+  <div class="card">
+    <h3>Instructions</h3>
+    <ul>
+      <li>Select the best answer from each dropdown.</li>
+      <li>Click <strong>Check answers</strong> to see score and explanations. Use <strong>Show explanations</strong> to toggle them all.</li>
+      <li>Questions reflect CompTIA Security+ exam style for PKI &amp; crypto (SY0-701‑style coverage).</li>
+    </ul>
+  </div>
+
+  <!-- Questions injected below -->
+</div>
+
+<div class="controls">
+  <div class="left">
+    <button id="check" class="primary">Check answers</button>
+    <button id="toggleExp">Show explanations</button>
+    <button id="reset">Reset</button>
+  </div>
+  <div class="score" id="score">Score: — / 15</div>
+</div>
+
+<script>
+const QUESTIONS = [
+  {id:'q1', title:'1) Which asymmetric algorithm is most commonly used for digital signatures on certificates?', obj:'Objective: PKI fundamentals', options:['— Select —','AES','RSA','SHA-256','Blowfish'], correct:'RSA', explain:'RSA is an asymmetric algorithm widely used for key exchange and signatures. AES/Blowfish are symmetric; SHA-256 is a hash.'},
+  {id:'q2', title:'2) In a typical enterprise PKI, which entity signs the leaf (end‑entity) certificates?', obj:'Objective: PKI hierarchy', options:['— Select —','Root CA','Intermediate CA','Registration Authority (RA)','CRL'], correct:'Intermediate CA', explain:'Intermediates issue and sign leaf certs; root keys are kept offline and sign the intermediates.'},
+  {id:'q3', title:'3) Which option best provides Perfect Forward Secrecy in TLS?', obj:'Objective: TLS cipher suites', options:['— Select —','TLS with RSA key exchange','TLS with ECDHE','TLS with static DH','TLS with MD5'], correct:'TLS with ECDHE', explain:'PFS requires ephemeral keys (DHE/ECDHE). RSA key exchange and static DH do not provide PFS; MD5 is an obsolete hash.'},
+  {id:'q4', title:'4) Which statement about certificate revocation is most accurate?', obj:'Objective: CRL vs OCSP', options:['— Select —','CRL provides real‑time status; OCSP is periodic','OCSP provides near real‑time status; CRL is periodically published','Neither OCSP nor CRL indicate revocation','Revocation only applies after certificate expiry'], correct:'OCSP provides near real‑time status; CRL is periodically published', explain:'OCSP responders return current status; CRLs are published lists refreshed periodically.'},
+  {id:'q5', title:'5) A developer generated a CSR. Which of the following is typically included in a CSR?', obj:'Objective: CSR contents', options:['— Select —','Applicant’s private key','Applicant’s public key and subject details','Root CA private key','CRL distribution points'], correct:'Applicant’s public key and subject details', explain:'A CSR contains the subject’s public key and identifying info. Private keys are never in the CSR.'},
+  {id:'q6', title:'6) Which format is most appropriate for importing a certificate with its private key on Windows?', obj:'Objective: Certificate formats', options:['— Select —','PEM (.pem/.crt)','DER (.der)','PFX / PKCS#12 (.pfx/.p12)','PKCS#7 (.p7b)'], correct:'PFX / PKCS#12 (.pfx/.p12)', explain:'PFX/PKCS#12 bundles certs + private key (password‑protected). PEM/DER often lack private key; PKCS#7 is certs only.'},
+  {id:'q7', title:'7) Which email security standard provides end‑to‑end encryption and signing using X.509 certs?', obj:'Objective: Email security', options:['— Select —','DKIM','SPF','S/MIME','PGP/MIME (Web of Trust)'], correct:'S/MIME', explain:'S/MIME uses X.509 certs and centralized trust; PGP/MIME uses a web of trust; DKIM/SPF are domain‑level mail auth.'},
+  {id:'q8', title:'8) Your organization mandates key escrow. Which statement fits?', obj:'Objective: Key management', options:['— Select —','A third party retains copies of private keys for recovery/legal access','Only public keys are archived to speed up TLS','It’s the same as key stretching','It requires TLS 1.3'], correct:'A third party retains copies of private keys for recovery/legal access', explain:'Key escrow is holding private keys (usually split control) for recovery or compliance.'},
+  {id:'q9', title:'9) Which protocol combination best describes an IPsec site‑to‑site VPN with confidentiality and integrity?', obj:'Objective: IPsec modes & protocols', options:['— Select —','AH in transport mode + MD5','ESP in tunnel mode + AES‑GCM','ESP in transport mode + NULL encryption','AH in tunnel mode + SHA‑1 only'], correct:'ESP in tunnel mode + AES‑GCM', explain:'ESP provides confidentiality and integrity. Tunnel mode encapsulates entire IP packet for site‑to‑site. AES‑GCM gives AEAD.'},
+  {id:'q10', title:'10) Which statement about ECC is true?', obj:'Objective: Asymmetric algorithms', options:['— Select —','ECC provides equivalent security with shorter key lengths than RSA','ECC is a symmetric block cipher','ECC cannot be used for digital signatures','ECC is only for hashing'], correct:'ECC provides equivalent security with shorter key lengths than RSA', explain:'ECC (e.g., ECDSA/ECDH) achieves comparable security with smaller keys, benefiting performance and mobile devices.'},
+  {id:'q11', title:'11) Diagram: Choose the best control to defeat a Man‑in‑the‑Middle between the client and reverse proxy.', obj:'Objective: TLS hardening · Scenario-based', options:['— Select —','Disable TLS on client; use HTTP','TLS 1.3 with certificate pinning on client','Use MD5 to hash traffic','Share one symmetric key across all clients'], correct:'TLS 1.3 with certificate pinning on client', explain:'TLS 1.3 with cert pinning ensures the client only trusts the expected server cert, reducing MitM risk.', diagram:true},
+  {id:'q12', title:'12) Which control best protects at‑rest database records including keys managed in hardware?', obj:'Objective: HSM / key protection', options:['— Select —','Full‑disk encryption with keys in application code','Transparent data encryption with keys stored in an HSM','RAID 1 mirroring','CRC checksums'], correct:'Transparent data encryption with keys stored in an HSM', explain:'TDE with HSM keeps keys in tamper‑resistant hardware and encrypts data at rest in the database engine.'},
+  {id:'q13', title:'13) Which is the best example of key stretching for password storage?', obj:'Objective: Password hashing', options:['— Select —','Base64‑encoding','PBKDF2/bcrypt/scrypt/Argon2 with salt','MD5 with no salt','ZIP password with AES‑128'], correct:'PBKDF2/bcrypt/scrypt/Argon2 with salt', explain:'Modern KDFs (PBKDF2/bcrypt/scrypt/Argon2) with salt slow cracking; encoding is not security; MD5 is obsolete.'},
+  {id:'q14', title:'14) A certificate for api.example.com must also cover auth.example.com and files.example.com. Which choice fits best?', obj:'Objective: SAN vs wildcard', options:['— Select —','Single‑name certificate','Wildcard certificate for *.example.com','Self‑signed certificate on each host','Code signing certificate'], correct:'Wildcard certificate for *.example.com', explain:'A wildcard (*.example.com) or SAN cert could cover subdomains; wildcard is the simpler single cert approach.'},
+  {id:'q15', title:'15) During a TLS handshake, what authenticates the server to the client?', obj:'Objective: TLS handshake', options:['— Select —','Server’s X.509 certificate and proof of private key','Client’s password','OCSP stapling alone','DNSSEC'], correct:'Server’s X.509 certificate and proof of private key', explain:'The server presents its X.509 certificate and proves key possession (e.g., signature in the handshake).'},
+];
+
+const wrap = document.querySelector('.wrap');
+function renderQuestions(){
+  QUESTIONS.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'card q';
+    card.dataset.id = q.id;
+    const h3 = document.createElement('h3');
+    h3.textContent = q.title;
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    meta.textContent = q.obj;
+
+    card.appendChild(h3);
+    card.appendChild(meta);
+
+    if(q.diagram){
+      const box = document.createElement('div');
+      box.className = 'svgbox';
+      box.innerHTML = `
+      <svg viewBox="0 0 760 180" width="100%" height="180" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L6,3 z" fill="#22d3ee" /></marker></defs>
+        <rect x="10" y="20" width="160" height="70" rx="10" fill="#0d1720" stroke="#1f2a37"/>
+        <text x="90" y="60" fill="#e2e8f0" text-anchor="middle" font-size="14">Client</text>
+        <rect x="230" y="20" width="160" height="70" rx="10" fill="#0d1720" stroke="#1f2a37"/>
+        <text x="310" y="60" fill="#e2e8f0" text-anchor="middle" font-size="14">Reverse Proxy</text>
+        <rect x="450" y="20" width="160" height="70" rx="10" fill="#0d1720" stroke="#1f2a37"/>
+        <text x="530" y="60" fill="#e2e8f0" text-anchor="middle" font-size="14">App Server</text>
+        <circle cx="190" cy="140" r="20" fill="#1b0f14" stroke="#ef4444"/>
+        <text x="190" y="145" fill="#ef4444" text-anchor="middle" font-size="12">Attacker</text>
+        <line x1="90" y1="90" x2="310" y2="90" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrow)"/>
+        <line x1="310" y1="90" x2="530" y2="90" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrow)"/>
+        <line x1="190" y1="120" x2="190" y2="90" stroke="#ef4444" stroke-width="2"/>
+      </svg>`;
+      card.appendChild(box);
+      const legend = document.createElement('div');
+      legend.className = 'legend';
+      legend.textContent = 'Client ↔ Reverse Proxy ↔ App Server; attacker can intercept near the client.';
+      card.appendChild(legend);
+    }
+
+    const sel = document.createElement('select');
+    q.options.forEach(o => {
+      const opt = document.createElement('option');
+      opt.textContent = o;
+      opt.value = o === '— Select —' ? '' : o;
+      sel.appendChild(opt);
+    });
+    card.appendChild(sel);
+
+    const fb = document.createElement('div'); fb.className='feedback'; card.appendChild(fb);
+    const ex = document.createElement('div'); ex.className='explain'; ex.textContent = q.explain; card.appendChild(ex);
+
+    wrap.appendChild(card);
+  });
+
+  // Tip + footer
+  const tip = document.createElement('div');
+  tip.className = 'card';
+  tip.innerHTML = `<details class="tip"><summary>💡 Tip: Exam realism</summary>
+    Expect distractors that are <em>almost</em> correct. Focus on what the question actually asks (e.g., revocation speed, at‑rest vs in‑transit, pinning vs TLS only, formats with private keys).
+  </details>`;
+  wrap.appendChild(tip);
+
+  const footer = document.createElement('div');
+  footer.className = 'card';
+  footer.innerHTML = `© Security+ PBQ Practice — Chapter 5. For study use.`;
+  wrap.appendChild(footer);
+}
+
+function grade(){
+  let correct = 0;
+  document.querySelectorAll('.q').forEach((qdiv, idx) => {
+    const id = qdiv.dataset.id;
+    const q = QUESTIONS.find(x=>x.id===id);
+    const sel = qdiv.querySelector('select');
+    const fb = qdiv.querySelector('.feedback');
+    const ex = qdiv.querySelector('.explain');
+    const val = sel.value;
+    if(!val){
+      fb.textContent = 'Select an answer.';
+      fb.className = 'feedback bad';
+      fb.style.display = 'block';
+      ex.style.display = 'none';
+      return;
+    }
+    if(val === q.correct){
+      correct++;
+      fb.textContent = 'Correct ✓';
+      fb.className = 'feedback ok';
+      ex.style.display = 'none';
+    }else{
+      fb.textContent = `Incorrect ✗`;
+      fb.className = 'feedback bad';
+      ex.style.display = 'block';
+    }
+    fb.style.display = 'block';
+  });
+  document.getElementById('score').textContent = `Score: ${correct} / ${QUESTIONS.length}`;
+}
+
+function toggleAllExplanations(){
+  const blocks = Array.from(document.querySelectorAll('.explain'));
+  const anyHidden = blocks.some(b => b.style.display !== 'block');
+  blocks.forEach(b => b.style.display = anyHidden ? 'block' : 'none');
+}
+
+function resetAll(){
+  document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+  document.querySelectorAll('.feedback').forEach(f => { f.style.display='none'; f.textContent=''; f.className='feedback'; });
+  document.querySelectorAll('.explain').forEach(e => e.style.display='none');
+  document.getElementById('score').textContent = 'Score: — / 15';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+renderQuestions();
+document.getElementById('check').addEventListener('click', grade);
+document.getElementById('toggleExp').addEventListener('click', toggleAllExplanations);
+document.getElementById('reset').addEventListener('click', resetAll);
+</script>
+</body>
+</html>
