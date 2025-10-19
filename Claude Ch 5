@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Security+ PBQ — PKI & Cryptography (20 Questions)</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#111922; --muted:#94a3b8; --text:#e2e8f0; --accent:#22d3ee;
+    --ok:#10b981; --bad:#ef4444; --border:#1f2a37;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 700px at 30% -10%, #0f172a 0%, var(--bg) 60%);color:var(--text);
+       font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans";}
+  header{position:sticky;top:0;z-index:3;padding:14px 18px;border-bottom:1px solid var(--border);
+         background:linear-gradient(180deg,rgba(17,25,34,.9),rgba(17,25,34,.6));backdrop-filter:blur(10px)}
+  header h1{margin:0;font-size:20px}
+  header p{margin:4px 0 0;color:var(--muted);font-size:13px}
+  .wrap{max-width:980px;margin:18px auto;padding:0 16px 80px}
+  .card{background:linear-gradient(185deg,rgba(34,211,238,.06),transparent 35%),linear-gradient(0deg,var(--panel),var(--panel));
+        border:1px solid var(--border);border-radius:18px;padding:18px 18px;margin-bottom:14px;
+        box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 12px 24px rgba(0,0,0,.35)}
+  .q{display:grid;gap:10px}
+  .q h3{margin:0 0 4px;font-size:16px;line-height:1.35}
+  .meta{color:var(--muted);font-size:12px;margin-bottom:6px}
+  select{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#0c131b;color:var(--text);font-size:15px;outline:none}
+  select:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(34,211,238,.15)}
+  .feedback{font-size:13px;margin-top:6px;display:none}
+  .feedback.ok{color:var(--ok)} .feedback.bad{color:var(--bad)}
+  .explain{margin-top:4px;color:var(--muted);font-size:12px;display:none;padding:8px;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--accent)}
+  .svgbox{background:#0a121a;border:1px solid var(--border);border-radius:12px;padding:12px;margin:8px 0}
+  .legend{font-size:12px;color:var(--muted);margin-top:6px}
+  .controls{position:sticky;bottom:0;z-index:3;padding:12px 16px;border-top:1px solid var(--border);
+            background:linear-gradient(0deg,rgba(17,25,34,.98),rgba(17,25,34,.8));display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  button{appearance:none;border:1px solid var(--border);background:#0c131b;color:var(--text);padding:10px 14px;border-radius:12px;font-size:14px;cursor:pointer;transition:all .2s}
+  button:hover{background:#162030;border-color:var(--accent)}
+  button.primary{background:linear-gradient(180deg,#14b8a6,#0ea5e9);border:none;color:white;font-weight:600}
+  button.primary:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(20,184,166,.4)}
+  .score{font-weight:700;letter-spacing:.2px}
+  details.tip{margin-top:6px;color:var(--muted)}
+  
+  /* Matching styles */
+  .match-container{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+  .match-col{display:flex;flex-direction:column;gap:8px}
+  .match-item{padding:10px;background:#0c131b;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s}
+  .match-item:hover{border-color:var(--accent);transform:translateX(3px)}
+  .match-item.selected{border-color:var(--accent);background:rgba(34,211,238,.1)}
+  .match-line{position:relative;min-height:30px}
+  
+  /* Drag order styles */
+  .drag-container{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+  .drag-item{padding:12px;background:#0c131b;border:1px solid var(--border);border-radius:8px;cursor:move;transition:all .2s;display:flex;align-items:center;gap:10px}
+  .drag-item:hover{border-color:var(--accent)}
+  .drag-item.dragging{opacity:.5}
+  .drag-handle{color:var(--muted);font-size:18px}
+  
+  /* Image question styles */
+  .img-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+  .img-option{padding:12px;background:#0c131b;border:2px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;text-align:center}
+  .img-option:hover{border-color:var(--accent)}
+  .img-option.selected{border-color:var(--accent);background:rgba(34,211,238,.1)}
+  .img-option svg{margin-bottom:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Security+ PBQ — PKI & Cryptography (20 Questions)</h1>
+  <p>Mixed question types: Multiple choice, matching, ordering, and diagram-based · Submit to see explanations</p>
+</header>
+
+<div class="wrap">
+  <div class="card">
+    <h3>Instructions</h3>
+    <ul>
+      <li>Answer all 20 questions using dropdowns, matching, drag-to-order, or image selection.</li>
+      <li>Click <strong>Submit Quiz</strong> when complete to see your score and detailed explanations.</li>
+      <li>Questions cover CompTIA Security+ PKI & Cryptography objectives (SY0-701 style).</li>
+    </ul>
+  </div>
+
+  <!-- Questions will be injected here -->
+</div>
+
+<div class="controls">
+  <div class="left" style="display:flex;gap:10px;align-items:center">
+    <button id="submit" class="primary">Submit Quiz</button>
+    <button id="toggleExp" style="display:none;">Show All Explanations</button>
+    <button id="reset">Reset Quiz</button>
+  </div>
+  <div class="score" id="score">Score: — / 20</div>
+</div>
+
+<script>
+const QUESTIONS = [
+  // Standard dropdown questions (from provided document)
+  {
+    id:'q1',
+    type:'select',
+    title:'1) Which asymmetric algorithm is most commonly used for digital signatures on certificates?',
+    obj:'Objective: PKI fundamentals',
+    options:['— Select —','AES','RSA','SHA-256','Blowfish'],
+    correct:'RSA',
+    explain:'RSA is an asymmetric algorithm widely used for key exchange and signatures. AES/Blowfish are symmetric; SHA-256 is a hash.'
+  },
+  {
+    id:'q2',
+    type:'select',
+    title:'2) In a typical enterprise PKI, which entity signs the leaf (end‑entity) certificates?',
+    obj:'Objective: PKI hierarchy',
+    options:['— Select —','Root CA','Intermediate CA','Registration Authority (RA)','CRL'],
+    correct:'Intermediate CA',
+    explain:'Intermediates issue and sign leaf certs; root keys are kept offline and sign the intermediates.'
+  },
+  {
+    id:'q3',
+    type:'select',
+    title:'3) Which option best provides Perfect Forward Secrecy in TLS?',
+    obj:'Objective: TLS cipher suites',
+    options:['— Select —','TLS with RSA key exchange','TLS with ECDHE','TLS with static DH','TLS with MD5'],
+    correct:'TLS with ECDHE',
+    explain:'PFS requires ephemeral keys (DHE/ECDHE). RSA key exchange and static DH do not provide PFS; MD5 is an obsolete hash.'
+  },
+  
+  // Image-based question - Certificate chain diagram
+  {
+    id:'q4',
+    type:'image',
+    title:'4) DIAGRAM: Identify the correct certificate chain validation flow:',
+    obj:'Objective: PKI Trust Chain',
+    diagram: `<svg viewBox="0 0 700 250" width="100%" height="250" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L6,3 z" fill="#22d3ee"/>
+        </marker>
+      </defs>
+      <rect x="50" y="20" width="150" height="60" rx="8" fill="#0d1720" stroke="#22d3ee" stroke-width="2"/>
+      <text x="125" y="45" fill="#22d3ee" text-anchor="middle" font-size="13" font-weight="bold">Root CA</text>
+      <text x="125" y="65" fill="#94a3b8" text-anchor="middle" font-size="11">Self-Signed</text>
+      
+      <rect x="275" y="20" width="150" height="60" rx="8" fill="#0d1720" stroke="#10b981" stroke-width="2"/>
+      <text x="350" y="45" fill="#10b981" text-anchor="middle" font-size="13" font-weight="bold">Intermediate CA</text>
+      <text x="350" y="65" fill="#94a3b8" text-anchor="middle" font-size="11">Signed by Root</text>
+      
+      <rect x="500" y="20" width="150" height="60" rx="8" fill="#0d1720" stroke="#f59e0b" stroke-width="2"/>
+      <text x="575" y="45" fill="#f59e0b" text-anchor="middle" font-size="13" font-weight="bold">Leaf Certificate</text>
+      <text x="575" y="65" fill="#94a3b8" text-anchor="middle" font-size="11">example.com</text>
+      
+      <line x1="200" y1="50" x2="275" y2="50" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow)"/>
+      <line x1="425" y1="50" x2="500" y2="50" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow)"/>
+      
+      <text x="350" y="120" fill="#e2e8f0" text-anchor="middle" font-size="14" font-weight="bold">Validation Direction:</text>
+      <line x1="575" y1="140" x2="125" y2="140" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow)"/>
+      <text x="350" y="165" fill="#ef4444" text-anchor="middle" font-size="12">Client validates from Leaf → Root</text>
+    </svg>`,
+    options:['Root signs Intermediate, Intermediate signs Leaf, Client validates Leaf → Root',
+             'Leaf signs Intermediate, Intermediate signs Root, Client validates Root → Leaf',
+             'All certificates are self-signed and validated independently',
+             'Client validates Root → Intermediate → Leaf'],
+    correct:'Root signs Intermediate, Intermediate signs Leaf, Client validates Leaf → Root',
+    explain:'In PKI, the root CA signs intermediate certificates, intermediates sign leaf certificates. Clients validate by checking the leaf against the intermediate, then intermediate against the trusted root.'
+  },
+  
+  {
+    id:'q5',
+    type:'select',
+    title:'5) Which algorithm provides both encryption and authentication in a single operation?',
+    obj:'Objective: AEAD Ciphers',
+    options:['— Select —','AES-CBC','AES-GCM','RSA','3DES'],
+    correct:'AES-GCM',
+    explain:'AES-GCM (Galois/Counter Mode) is an AEAD (Authenticated Encryption with Associated Data) cipher providing both confidentiality and integrity in one operation.'
+  },
+  
+  // Matching question - Certificate types
+  {
+    id:'q6',
+    type:'match',
+    title:'6) MATCHING: Match each certificate type to its primary use case:',
+    obj:'Objective: Certificate Usage',
+    leftItems: [
+      {id:'m1', text:'Code Signing Certificate'},
+      {id:'m2', text:'S/MIME Certificate'},
+      {id:'m3', text:'Document Signing Certificate'},
+      {id:'m4', text:'SSL/TLS Certificate'}
+    ],
+    rightItems: [
+      {id:'r1', text:'Encrypt and sign email messages'},
+      {id:'r2', text:'Verify software publisher identity'},
+      {id:'r3', text:'Secure web server communications'},
+      {id:'r4', text:'Sign PDF documents digitally'}
+    ],
+    correctMatches: {m1:'r2', m2:'r1', m3:'r4', m4:'r3'},
+    explain:'Code signing verifies software publishers, S/MIME secures email, document signing certificates sign PDFs/documents, and SSL/TLS certificates secure web traffic.'
+  },
+  
+  {
+    id:'q7',
+    type:'select',
+    title:'7) Which protocol provides certificate status checking with lower latency than CRL?',
+    obj:'Objective: Certificate Validation',
+    options:['— Select —','LDAP','OCSP','RADIUS','TACACS+'],
+    correct:'OCSP',
+    explain:'OCSP (Online Certificate Status Protocol) provides real-time certificate status checks, offering much lower latency than downloading and parsing entire CRLs.'
+  },
+  
+  // Drag to order - TLS handshake
+  {
+    id:'q8',
+    type:'order',
+    title:'8) DRAG TO ORDER: Arrange the TLS 1.2 handshake steps in correct sequence:',
+    obj:'Objective: TLS Handshake Process',
+    items: [
+      {id:'o1', text:'Client sends ClientHello with supported cipher suites', order:1},
+      {id:'o2', text:'Server sends ServerHello with chosen cipher suite', order:2},
+      {id:'o3', text:'Server sends certificate and ServerHelloDone', order:3},
+      {id:'o4', text:'Client validates certificate and sends ClientKeyExchange', order:4},
+      {id:'o5', text:'Both parties send ChangeCipherSpec and Finished messages', order:5}
+    ],
+    explain:'TLS 1.2 handshake: (1) Client proposes ciphers, (2) Server selects cipher, (3) Server proves identity with certificate, (4) Client establishes shared secret, (5) Both confirm and switch to encrypted communication.'
+  },
+  
+  {
+    id:'q9',
+    type:'select',
+    title:'9) What is the primary purpose of OCSP stapling?',
+    obj:'Objective: Performance Optimization',
+    options:['— Select —','Reduce load on OCSP responders and improve privacy','Encrypt certificate private keys','Replace certificate expiration dates','Eliminate need for root CA'],
+    correct:'Reduce load on OCSP responders and improve privacy',
+    explain:'OCSP stapling has the server obtain the OCSP response and "staple" it to the certificate during TLS handshake, reducing OCSP server load and improving client privacy.'
+  },
+  
+  // Image question - Cipher suite components
+  {
+    id:'q10',
+    type:'image',
+    title:'10) DIAGRAM: Identify the components of this TLS cipher suite:',
+    obj:'Objective: Cipher Suite Structure',
+    diagram: `<svg viewBox="0 0 800 180" width="100%" height="180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="40" width="760" height="60" rx="8" fill="#0d1720" stroke="#1f2a37"/>
+      <text x="400" y="75" fill="#e2e8f0" text-anchor="middle" font-size="16" font-family="monospace" font-weight="bold">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</text>
+      
+      <line x1="180" y1="100" x2="180" y2="130" stroke="#22d3ee" stroke-width="2"/>
+      <text x="100" y="150" fill="#22d3ee" text-anchor="middle" font-size="11">Key Exchange</text>
+      
+      <line x1="300" y1="100" x2="300" y2="130" stroke="#10b981" stroke-width="2"/>
+      <text x="240" y="150" fill="#10b981" text-anchor="middle" font-size="11">Authentication</text>
+      
+      <line x1="480" y1="100" x2="480" y2="130" stroke="#f59e0b" stroke-width="2"/>
+      <text x="400" y="150" fill="#f59e0b" text-anchor="middle" font-size="11">Encryption</text>
+      
+      <line x1="620" y1="100" x2="620" y2="130" stroke="#ef4444" stroke-width="2"/>
+      <text x="700" y="150" fill="#ef4444" text-anchor="middle" font-size="11">MAC/Hash</text>
+    </svg>`,
+    options:['ECDHE=Key Exchange, RSA=Auth, AES-256-GCM=Encryption, SHA384=Hash',
+             'ECDHE=Encryption, RSA=Key Exchange, AES=Auth, SHA384=MAC',
+             'ECDHE=Hash, RSA=Encryption, AES-256=Key Exchange, GCM=Auth',
+             'All components can be used interchangeably'],
+    correct:'ECDHE=Key Exchange, RSA=Auth, AES-256-GCM=Encryption, SHA384=Hash',
+    explain:'Cipher suite format: Protocol_KeyExchange_Authentication_WITH_Encryption_MAC. ECDHE provides key exchange, RSA authenticates, AES-256-GCM encrypts, SHA384 provides hashing/integrity.'
+  },
+  
+  {
+    id:'q11',
+    type:'select',
+    title:'11) Which key management practice provides the BEST protection for root CA private keys?',
+    obj:'Objective: Key Protection',
+    options:['— Select —','Store in software on the CA server','Keep in an offline HSM in a secure vault','Store encrypted on network share','Email to administrators'],
+    correct:'Keep in an offline HSM in a secure vault',
+    explain:'Root CA private keys should be stored offline in Hardware Security Modules (HSMs) in physically secure locations, only brought online for signing intermediate CA certificates.'
+  },
+  
+  // Matching question - Cryptographic hash functions
+  {
+    id:'q12',
+    type:'match',
+    title:'12) MATCHING: Match hash algorithms to their status/characteristics:',
+    obj:'Objective: Hash Function Security',
+    leftItems: [
+      {id:'h1', text:'MD5'},
+      {id:'h2', text:'SHA-1'},
+      {id:'h3', text:'SHA-256'},
+      {id:'h4', text:'SHA-3'}
+    ],
+    rightItems: [
+      {id:'hr1', text:'Cryptographically broken, collision attacks exist'},
+      {id:'hr2', text:'Deprecated, collision attacks demonstrated'},
+      {id:'hr3', text:'Currently secure, widely used in TLS and certificates'},
+      {id:'hr4', text:'Newest standard, uses different construction than SHA-2'}
+    ],
+    correctMatches: {h1:'hr1', h2:'hr2', h3:'hr3', h4:'hr4'},
+    explain:'MD5 is broken (collisions are trivial), SHA-1 is deprecated (practical collisions exist), SHA-256 is current standard, SHA-3 uses Keccak sponge construction.'
+  },
+  
+  {
+    id:'q13',
+    type:'select',
+    title:'13) A company needs to ensure that decryption keys are available if employees leave. Which solution fits?',
+    obj:'Objective: Key Recovery',
+    options:['— Select —','Key escrow with split knowledge','Delete all keys when employee leaves','Use only symmetric encryption','Disable all encryption'],
+    correct:'Key escrow with split knowledge',
+    explain:'Key escrow stores copies of private keys for recovery purposes. Split knowledge (M-of-N control) ensures no single person can access escrowed keys without authorization.'
+  },
+  
+  // Drag to order - Certificate lifecycle
+  {
+    id:'q14',
+    type:'order',
+    title:'14) DRAG TO ORDER: Arrange the certificate lifecycle stages in correct sequence:',
+    obj:'Objective: Certificate Management',
+    items: [
+      {id:'c1', text:'Generate key pair and create CSR', order:1},
+      {id:'c2', text:'Submit CSR to CA for validation', order:2},
+      {id:'c3', text:'CA issues and signs certificate', order:3},
+      {id:'c4', text:'Install certificate on server/device', order:4},
+      {id:'c5', text:'Monitor expiration and renew or revoke', order:5}
+    ],
+    explain:'Certificate lifecycle: (1) Generate keys and CSR, (2) Submit for validation, (3) CA issues certificate, (4) Deploy certificate, (5) Manage renewal/revocation before expiry.'
+  },
+  
+  {
+    id:'q15',
+    type:'select',
+    title:'15) Which IPsec component provides confidentiality, integrity, and authentication?',
+    obj:'Objective: VPN Protocols',
+    options:['— Select —','AH (Authentication Header)','ESP (Encapsulating Security Payload)','IKE (Internet Key Exchange)','RADIUS'],
+    correct:'ESP (Encapsulating Security Payload)',
+    explain:'ESP provides encryption (confidentiality), integrity, and authentication. AH provides only integrity and authentication without encryption.'
+  },
+  
+  // Image question - Public key operations
+  {
+    id:'q16',
+    type:'image',
+    title:'16) DIAGRAM: In this asymmetric encryption scenario, which keys are used?',
+    obj:'Objective: Asymmetric Cryptography',
+    diagram: `<svg viewBox="0 0 700 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowg" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L6,3 z" fill="#10b981"/>
+        </marker>
+      </defs>
+      
+      <rect x="50" y="50" width="140" height="100" rx="8" fill="#0d1720" stroke="#22d3ee" stroke-width="2"/>
+      <text x="120" y="75" fill="#22d3ee" text-anchor="middle" font-size="13" font-weight="bold">Alice (Sender)</text>
+      <text x="120" y="100" fill="#94a3b8" text-anchor="middle" font-size="11">Has Bob's public key</text>
+      <text x="120" y="130" fill="#10b981" text-anchor="middle" font-size="12">Encrypts message</text>
+      
+      <rect x="510" y="50" width="140" height="100" rx="8" fill="#0d1720" stroke="#f59e0b" stroke-width="2"/>
+      <text x="580" y="75" fill="#f59e0b" text-anchor="middle" font-size="13" font-weight="bold">Bob (Receiver)</text>
+      <text x="580" y="100" fill="#94a3b8" text-anchor="middle" font-size="11">Has private key</text>
+      <text x="580" y="130" fill="#ef4444" text-anchor="middle" font-size="12">Decrypts message</text>
+      
+      <line x1="190" y1="100" x2="510" y2="100" stroke="#10b981" stroke-width="3" marker-end="url(#arrowg)"/>
+      <text x="350" y="90" fill="#10b981" text-anchor="middle" font-size="11" font-weight="bold">Encrypted Message</text>
+    </svg>`,
+    options:['Alice encrypts with Bob\'s public key; Bob decrypts with Bob\'s private key',
+             'Alice encrypts with Alice\'s private key; Bob decrypts with Alice\'s public key',
+             'Alice encrypts with Bob\'s private key; Bob decrypts with Bob\'s public key',
+             'Both use the same symmetric key'],
+    correct:'Alice encrypts with Bob\'s public key; Bob decrypts with Bob\'s private key',
+    explain:'For confidentiality, encrypt with the recipient\'s public key. Only the recipient can decrypt with their corresponding private key. This ensures only Bob can read the message.'
+  },
+  
+  {
+    id:'q17',
+    type:'select',
+    title:'17) Which certificate format is ASCII-encoded and starts with "-----BEGIN CERTIFICATE-----"?',
+    obj:'Objective: Certificate Formats',
+    options:['— Select —','DER','PEM','PFX','P7B'],
+    correct:'PEM',
+    explain:'PEM (Privacy Enhanced Mail) is Base64-encoded with BEGIN/END markers. DER is binary, PFX/P12 contains keys+certs, P7B/PKCS#7 contains certificate chains.'
+  },
+  
+  // Matching question - Key algorithms and uses
+  {
+    id:'q18',
+    type:'match',
+    title:'18) MATCHING: Match cryptographic algorithms to their primary purpose:',
+    obj:'Objective: Algorithm Selection',
+    leftItems: [
+      {id:'a1', text:'RSA'},
+      {id:'a2', text:'AES'},
+      {id:'a3', text:'SHA-256'},
+      {id:'a4', text:'HMAC'}
+    ],
+    rightItems: [
+      {id:'ar1', text:'Symmetric encryption for bulk data'},
+      {id:'ar2', text:'Asymmetric encryption and digital signatures'},
+      {id:'ar3', text:'Message authentication with shared secret'},
+      {id:'ar4', text:'One-way hashing for integrity verification'}
+    ],
+    correctMatches: {a1:'ar2', a2:'ar1', a3:'ar4', a4:'ar3'},
+    explain:'RSA: asymmetric operations (signatures, key exchange). AES: fast symmetric encryption. SHA-256: hashing for integrity. HMAC: keyed hash for authentication.'
+  },
+  
+  {
+    id:'q19',
+    type:'select',
+    title:'19) What is the main advantage of Perfect Forward Secrecy (PFS)?',
+    obj:'Objective: Forward Secrecy',
+    options:['— Select —','Faster encryption speed','Compromise of long-term keys doesn\'t compromise past sessions','Eliminates need for certificates','Allows key reuse across sessions'],
+    correct:'Compromise of long-term keys doesn\'t compromise past sessions',
+    explain:'PFS uses ephemeral keys (DHE/ECDHE) for each session. Even if the server\'s private key is later compromised, past encrypted sessions cannot be decrypted.'
+  },
+  
+  {
+    id:'q20',
+    type:'select',
+    title:'20) Which standard defines the format and structure of digital certificates?',
+    obj:'Objective: PKI Standards',
+    options:['— Select —','X.500','X.509','PKCS#10','RFC 5280'],
+    correct:'X.509',
+    explain:'X.509 is the standard defining certificate structure (version, serial number, signature algorithm, issuer, subject, public key, extensions, etc.). RFC 5280 profiles X.509 for Internet PKI.'
+  }
+];
+
+let draggedElement = null;
+let matchSelections = {};
+
+const wrap = document.querySelector('.wrap');
+
+function renderQuestions(){
+  QUESTIONS.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'card q';
+    card.dataset.id = q.id;
+    card.dataset.type = q.type;
+    
+    const h3 = document.createElement('h3');
+    h3.textContent = q.title;
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    meta.textContent = q.obj;
+    
+    card.appendChild(h3);
+    card.appendChild(meta);
+    
+    // Render diagram if present
+    if(q.diagram){
+      const box = document.createElement('div');
+      box.className = 'svgbox';
+      box.innerHTML = q.diagram;
+      card.appendChild(box);
+    }
+    
+    // Render based on question type
+    if(q.type === 'select' || q.type === 'image'){
+      if(q.type === 'image'){
+        const imgOpts = document.createElement('div');
+        imgOpts.className = 'img-options';
+        q.options.forEach((opt, idx) => {
+          const div = document.createElement('div');
+          div.className = 'img-option';
+          div.dataset.value = opt;
+          div.innerHTML = `<div style="font-size:13px;line-height:1.4">${opt}</div>`;
+          div.onclick = () => {
+            card.querySelectorAll('.img-option').forEach(o => o.classList.remove('selected'));
+            div.classList.add('selected');
+          };
+          imgOpts.appendChild(div);
+        });
+        card.appendChild(imgOpts);
+      } else {
+        const sel = document.createElement('select');
+        q.options.forEach(o => {
+          const opt = document.createElement('option');
+          opt.textContent = o;
+          opt.value = o === '— Select —' ? '' : o;
+          sel.appendChild(opt);
+        });
+        card.appendChild(sel);
+      }
+    } else if(q.type === 'match'){
+      matchSelections[q.id] = {};
+      const container = document.createElement('div');
+      container.className = 'match-container';
+      
+      const leftCol = document.createElement('div');
+      leftCol.className = 'match-col';
+      q.leftItems.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'match-item';
+        div.dataset.id = item.id;
+        div.textContent = item.text;
+        div.onclick = () => selectMatchItem(q.id, card, item.id, 'left');
+        leftCol.appendChild(div);
+      });
+      
+      const rightCol = document.createElement('div');
+      rightCol.className = 'match-col';
+      q.rightItems.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'match-item';
+        div.dataset.id = item.id;
+        div.textContent = item.text;
+        div.onclick = () => selectMatchItem(q.id, card, item.id, 'right');
+        rightCol.appendChild(div);
+      });
+      
+      container.appendChild(leftCol);
+      container.appendChild(rightCol);
+      card.appendChild(container);
+      
+      const matchInfo = document.createElement('div');
+      matchInfo.className = 'legend';
+      matchInfo.textContent = 'Click items from left column, then right column to match. Selected pairs will be highlighted.';
+      card.appendChild(matchInfo);
+      
+    } else if(q.type === 'order'){
+      const container = document.createElement('div');
+      container.className = 'drag-container';
+      
+      // Shuffle items for initial display
+      const shuffled = [...q.items].sort(() => Math.random() - 0.5);
+      
+      shuffled.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'drag-item';
+        div.draggable = true;
+        div.dataset.id = item.id;
+        div.innerHTML = `<span class="drag-handle">☰</span><span>${item.text}</span>`;
+        
+        div.ondragstart = (e) => {
+          draggedElement = div;
+          div.classList.add('dragging');
+        };
+        
+        div.ondragend = (e) => {
+          div.classList.remove('dragging');
+        };
+        
+        div.ondragover = (e) => {
+          e.preventDefault();
+        };
+        
+        div.ondrop = (e) => {
+          e.preventDefault();
+          if(draggedElement !== div){
+            const allItems = [...container.querySelectorAll('.drag-item')];
+            const draggedIdx = allItems.indexOf(draggedElement);
+            const targetIdx = allItems.indexOf(div);
+            
+            if(draggedIdx < targetIdx){
+              div.after(draggedElement);
+            } else {
+              div.before(draggedElement);
+            }
+          }
+        };
+        
+        container.appendChild(div);
+      });
+      
+      card.appendChild(container);
+      
+      const dragInfo = document.createElement('div');
+      dragInfo.className = 'legend';
+      dragInfo.textContent = 'Drag items to arrange in correct order from top to bottom.';
+      card.appendChild(dragInfo);
+    }
+    
+    const fb = document.createElement('div');
+    fb.className = 'feedback';
+    card.appendChild(fb);
+    
+    const ex = document.createElement('div');
+    ex.className = 'explain';
+    ex.textContent = q.explain;
+    card.appendChild(ex);
+    
+    wrap.appendChild(card);
+  });
+  
+  // Tips
+  const tip = document.createElement('div');
+  tip.className = 'card';
+  tip.innerHTML = `<details class="tip"><summary>💡 Study Tips</summary>
+    <p>Focus on:</p>
+    <ul>
+      <li>Certificate chain validation flows and trust models</li>
+      <li>Cipher suite components and their purposes</li>
+      <li>Hash function security levels (MD5 broken, SHA-1 deprecated, SHA-256+ secure)</li>
+      <li>Public key operations (encrypt with public, decrypt with private)</li>
+      <li>PFS and ephemeral key exchange (DHE/ECDHE)</li>
+    </ul>
+  </details>`;
+  wrap.appendChild(tip);
+  
+  const footer = document.createElement('div');
+  footer.className = 'card';
+  footer.innerHTML = `© Security+ PBQ Practice — PKI & Cryptography. For educational use only.`;
+  wrap.appendChild(footer);
+}
+
+function selectMatchItem(qid, card, itemId, side){
+  if(!matchSelections[qid].left && side === 'left'){
+    matchSelections[qid].left = itemId;
+    card.querySelector(`[data-id="${itemId}"]`).classList.add('selected');
+  } else if(matchSelections[qid].left && side === 'right'){
+    matchSelections[qid][matchSelections[qid].left] = itemId;
+    card.querySelector(`[data-id="${itemId}"]`).classList.add('selected');
+    delete matchSelections[qid].left;
+  } else if(matchSelections[qid].left && side === 'left'){
+    // Change selection
+    const prev = card.querySelector(`[data-id="${matchSelections[qid].left}"]`);
+    if(prev) prev.classList.remove('selected');
+    matchSelections[qid].left = itemId;
+    card.querySelector(`[data-id="${itemId}"]`).classList.add('selected');
+  }
+}
+
+function gradeQuiz(){
+  let correct = 0;
+  let total = QUESTIONS.length;
+  
+  document.querySelectorAll('.q').forEach(qdiv => {
+    const id = qdiv.dataset.id;
+    const type = qdiv.dataset.type;
+    const q = QUESTIONS.find(x => x.id === id);
+    const fb = qdiv.querySelector('.feedback');
+    const ex = qdiv.querySelector('.explain');
+    
+    let isCorrect = false;
+    let userAnswer = '';
+    
+    if(type === 'select'){
+      const sel = qdiv.querySelector('select');
+      userAnswer = sel.value;
+      if(!userAnswer){
+        fb.textContent = 'No answer selected.';
+        fb.className = 'feedback bad';
+        fb.style.display = 'block';
+        ex.style.display = 'none';
+        return;
+      }
+      isCorrect = userAnswer === q.correct;
+    } else if(type === 'image'){
+      const selected = qdiv.querySelector('.img-option.selected');
+      if(!selected){
+        fb.textContent = 'No answer selected.';
+        fb.className = 'feedback bad';
+        fb.style.display = 'block';
+        ex.style.display = 'none';
+        return;
+      }
+      userAnswer = selected.dataset.value;
+      isCorrect = userAnswer === q.correct;
+    } else if(type === 'match'){
+      const userMatches = matchSelections[id];
+      const correctMatches = q.correctMatches;
+      
+      let allCorrect = true;
+      let matchCount = 0;
+      
+      for(let left in correctMatches){
+        if(userMatches[left] === correctMatches[left]){
+          matchCount++;
+        } else {
+          allCorrect = false;
+        }
+      }
+      
+      if(matchCount === 0){
+        fb.textContent = 'No matches made.';
+        fb.className = 'feedback bad';
+        fb.style.display = 'block';
+        ex.style.display = 'none';
+        return;
+      }
+      
+      isCorrect = allCorrect && matchCount === Object.keys(correctMatches).length;
+      
+      if(!isCorrect){
+        fb.textContent = `Partially correct: ${matchCount}/${Object.keys(correctMatches).length} matches correct.`;
+      }
+    } else if(type === 'order'){
+      const container = qdiv.querySelector('.drag-container');
+      const items = [...container.querySelectorAll('.drag-item')];
+      const userOrder = items.map(item => {
+        const itemData = q.items.find(x => x.id === item.dataset.id);
+        return itemData.order;
+      });
+      
+      isCorrect = userOrder.every((val, idx) => val === idx + 1);
+    }
+    
+    if(isCorrect){
+      correct++;
+      fb.textContent = '✓ Correct';
+      fb.className = 'feedback ok';
+      ex.style.display = 'none';
+    } else {
+      if(type !== 'match'){
+        fb.textContent = '✗ Incorrect';
+      }
+      fb.className = 'feedback bad';
+      ex.style.display = 'block';
+    }
+    
+    fb.style.display = 'block';
+  });
+  
+  document.getElementById('score').textContent = `Score: ${correct} / ${total} (${Math.round(correct/total*100)}%)`;
+  document.getElementById('toggleExp').style.display = 'inline-block';
+}
+
+function toggleAllExplanations(){
+  const blocks = Array.from(document.querySelectorAll('.explain'));
+  const anyHidden = blocks.some(b => b.style.display !== 'block');
+  blocks.forEach(b => b.style.display = anyHidden ? 'block' : 'none');
+  document.getElementById('toggleExp').textContent = anyHidden ? 'Hide All Explanations' : 'Show All Explanations';
+}
+
+function resetQuiz(){
+  // Reset selects
+  document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+  
+  // Reset image selections
+  document.querySelectorAll('.img-option').forEach(o => o.classList.remove('selected'));
+  
+  // Reset matches
+  document.querySelectorAll('.match-item').forEach(m => m.classList.remove('selected'));
+  matchSelections = {};
+  QUESTIONS.filter(q => q.type === 'match').forEach(q => matchSelections[q.id] = {});
+  
+  // Reset drag order - re-render
+  document.querySelectorAll('.q[data-type="order"]').forEach(qdiv => {
+    const id = qdiv.dataset.id;
+    const q = QUESTIONS.find(x => x.id === id);
+    const container = qdiv.querySelector('.drag-container');
+    container.innerHTML = '';
+    
+    const shuffled = [...q.items].sort(() => Math.random() - 0.5);
+    shuffled.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'drag-item';
+      div.draggable = true;
+      div.dataset.id = item.id;
+      div.innerHTML = `<span class="drag-handle">☰</span><span>${item.text}</span>`;
+      
+      div.ondragstart = (e) => {
+        draggedElement = div;
+        div.classList.add('dragging');
+      };
+      
+      div.ondragend = (e) => {
+        div.classList.remove('dragging');
+      };
+      
+      div.ondragover = (e) => {
+        e.preventDefault();
+      };
+      
+      div.ondrop = (e) => {
+        e.preventDefault();
+        if(draggedElement !== div){
+          const allItems = [...container.querySelectorAll('.drag-item')];
+          const draggedIdx = allItems.indexOf(draggedElement);
+          const targetIdx = allItems.indexOf(div);
+          
+          if(draggedIdx < targetIdx){
+            div.after(draggedElement);
+          } else {
+            div.before(draggedElement);
+          }
+        }
+      };
+      
+      container.appendChild(div);
+    });
+  });
+  
+  // Reset feedback
+  document.querySelectorAll('.feedback').forEach(f => {
+    f.style.display = 'none';
+    f.textContent = '';
+    f.className = 'feedback';
+  });
+  document.querySelectorAll('.explain').forEach(e => e.style.display = 'none');
+  
+  document.getElementById('score').textContent = 'Score: — / 20';
+  document.getElementById('toggleExp').style.display = 'none';
+  document.getElementById('toggleExp').textContent = 'Show All Explanations';
+  
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+renderQuestions();
+document.getElementById('submit').addEventListener('click', gradeQuiz);
+document.getElementById('toggleExp').addEventListener('click', toggleAllExplanations);
+document.getElementById('reset').addEventListener('click', resetQuiz);
+</script>
+</body>
+</html>
